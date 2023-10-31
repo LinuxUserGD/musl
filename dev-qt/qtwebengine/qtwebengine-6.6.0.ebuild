@@ -88,27 +88,19 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-6.5.1-normalise-clipboard-permissions.patch"
-
 	# Patches for musl support
-	"${FILESDIR}/${PN}-6.5.1-musl-disable-glibc-check.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-temp-retry-failure.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-mallinfo.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-crashpad.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-no-execinfo.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-resolve.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-stat.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-close.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-canonicalize-file-name.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-wtf-stacksize.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-missing-includes.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-default-pthread-stacksize.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-fix-narrowing-cast.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-systypes.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-lfs64.patch"
-	"${FILESDIR}/${PN}-6.5.1-musl-remove-decls-usage.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-disable-glibc-check.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-temp-retry-failure.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-mallinfo.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-no-execinfo.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-resolve.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-close.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-missing-includes.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-systypes.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-lfs64.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-remove-decls-usage.patch"
 	## runtime
-	"${FILESDIR}/${PN}-6.5.1-musl-sandbox.patch"
+	"${FILESDIR}/${PN}-6.6.0-musl-sandbox.patch"
 )
 
 python_check_deps() {
@@ -192,7 +184,7 @@ src_prepare() {
 	# src/3rdparty/gn fails with libc++ due to passing of `-static-libstdc++`
 	if tc-is-clang ; then
 		if has_version 'sys-devel/clang[default-libcxx(-)]' || has_version 'sys-devel/clang-common[default-libcxx(-)]' ; then
-			eapply "${FILESDIR}/${PN}-6.5.1-clang-libc++.patch"
+			eapply "${FILESDIR}/${PN}-6.6.0-clang-libc++.patch"
 		fi
 	fi
 
