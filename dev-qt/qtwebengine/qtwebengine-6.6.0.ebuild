@@ -101,6 +101,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-6.6.0-musl-remove-decls-usage.patch"
 	## runtime
 	"${FILESDIR}/${PN}-6.6.0-musl-sandbox.patch"
+	## no template named '__is_cpp17_contiguous_iterator'
+	"${FILESDIR}/clang-libcxx.patch"
 )
 
 python_check_deps() {
